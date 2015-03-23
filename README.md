@@ -1,1 +1,0 @@
-# static-site-bootstrap
