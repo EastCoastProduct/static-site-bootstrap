@@ -1,0 +1,6 @@
+.DS_Store
+.sass-cache
+.publish
+aws.json
+node_modules
+dist
