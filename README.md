@@ -6,5 +6,5 @@ The purpose of this repository is for you to be able to easily publish a static 
 2. Modify the contents of the src folder.
 3. Run ```npm install```
 4. Run ```gulp build```
-5a. For publishing Github Pages ```gulp publish-ghp```
-5b. For publishing S3 ```gulp publish-s3```
+5. a. For publishing Github Pages ```gulp publish-ghp```
+5. b. For publishing S3 ```gulp publish-s3```
