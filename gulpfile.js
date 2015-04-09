@@ -18,18 +18,16 @@ var options = {
   gzippedOnly: true
 };
 
-// var aws = JSON.parse(fs.readFileSync('./aws.json'));
-
 gulp.task('clean', function(cb) {
   del(['dist/**/*'], cb);
 });
 
-gulp.task('copy-images', function(){
+gulp.task('copy-images', function() {
   return gulp.src('./src/img/**/*')
     .pipe(gulp.dest('./dist/img'));
 });
 
-gulp.task('copy-css', function(){
+gulp.task('copy-css', function() {
   return gulp.src('./src/css/**/*')
     .pipe(gulp.dest('./dist/css'));
 });
@@ -39,7 +37,7 @@ gulp.task('copy-assets', [
   'copy-css'
 ]);
 
-gulp.task('build-html', function(){
+gulp.task('build-html', function() {
   return gulp.src('./src/index.html')
     .pipe(htmlreplace({
       'js': 'js/bundle.min.js'
@@ -47,7 +45,7 @@ gulp.task('build-html', function(){
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('compress-js', function(){
+gulp.task('compress-js', function() {
   return gulp.src([
     './src/js/main.js',
     './src/js/plugins.js' ])
@@ -56,7 +54,7 @@ gulp.task('compress-js', function(){
     .pipe(gulp.dest('./dist/js'));
 })
 
-gulp.task('copy-vendor-js', function(){
+gulp.task('copy-vendor-js', function() {
   return gulp.src('./src/js/vendor/**/*')
     .pipe(gulp.dest('./dist/js/vendor'));
 });
@@ -68,12 +66,15 @@ gulp.task('build', [
   'copy-vendor-js'
 ]);
 
-gulp.task('publish-ghp', function(){
+gulp.task('publish-ghp', function() {
   return gulp.src('./dist/**/*')
     .pipe(ghPages());
 });
 
-gulp.task('publish-s3', function(){
+gulp.task('publish-s3', function() {
+
+  var aws = JSON.parse(fs.readFileSync('./aws.json'));
+
   return gulp.src('./dist/**/*')
     .pipe(gzip())
     .pipe(s3(aws, options));
