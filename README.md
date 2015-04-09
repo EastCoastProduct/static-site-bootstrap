@@ -11,4 +11,4 @@ The purpose of this repository is for you to be able to easily publish a static 
 
 ## Configuring for S3 publish
 
-There is a `.aws.json.example` file inside the repo. Thats the example configuration file with dummy values. To configure your own just rename that file to `.aws.json` and put your real values in there. That file is listed in `.gitignore` so you don't accidentally upload real credentials on git.
+There is a `aws.json.example` file inside the repo. Thats the example configuration file with dummy values. To configure your own just rename that file to `aws.json` and put your real values in there. That file is listed in `.gitignore` so you don't accidentally upload real credentials on git.
